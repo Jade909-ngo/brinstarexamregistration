@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% include 'accounts/style_with_background.html' %}
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="{% static 'images/csn_logo.png' %}" alt="CSN Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'register_exam' %}">Register for Exam</a></li>
+                <li><a href="{% url 'view_schedule' %}">View Schedule</a></li>
+                <li><a href="{% url 'profile' %}" class="active">Profile</a></li>
+                <li><a href="{% url 'notifications' %}">Notifications</a></li>
+                <li><a href="{% url 'settings' %}">Settings</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="welcome-section">
+                    <h1>Student Profile</h1>
+                    <p>Today is {% now "F j, Y" %}</p>
+                </div>
+            </header>
+            <div class="dashboard-content">
+                <div class="dashboard-grid">
+                    <div class="dashboard-card profile-card">
+                        <div class="profile-header">
+                        </div>
+                        <form class="profile-form">
+                            <div class="form-section">
+                                <h3>Personal Information</h3>
+                                <div class="form-group">
+                                    <label>Student ID</label>
+                                    <input type="text" value="12345678" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label>Full Name</label>
+                                    <input type="text" value="John Doe">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" value="john.doe@student.csn.edu">
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone Number</label>
+                                    <input type="tel" value="(702) 555-0123">
+                                </div>
+                            </div>
+                            
+                            <div class="form-section">
+                                <h3>Academic Information</h3>
+                                <div class="form-group">
+                                    <label>Major</label>
+                                    <input type="text" value="Computer Science">
+                                </div>
+                                <div class="form-group">
+                                    <label>Academic Status</label>
+                                    <input type="text" value="Full-time" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="action-btn primary">Save Changes</button>
+                                <button type="reset" class="action-btn secondary">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

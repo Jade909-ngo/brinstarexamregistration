@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Students</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% include 'accounts/style_with_background.html' %}
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="{% static 'images/csn_logo.png' %}" alt="CSN Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'admin_dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'manage_students' %}" class="active">Manage Students</a></li>
+                <li><a href="#">Exam Schedule</a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="welcome-section">
+                    <h1>Manage Students</h1>
+                    <p>Today is {% now "F j, Y" %}</p>
+                </div>
+            </header>
+            <div class="dashboard-content">
+                <div class="dashboard-card">
+                    <div class="student-controls">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search students...">
+                            <button class="action-btn">Search</button>
+                        </div>
+                        <button class="action-btn primary">Add New Student</button>
+                    </div>
+                    
+                    <div class="student-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Student ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Major</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>12345678</td>
+                                    <td>John Doe</td>
+                                    <td>john.doe@student.csn.edu</td>
+                                    <td>Computer Science</td>
+                                    <td><span class="status-badge active">Active</span></td>
+                                    <td class="action-buttons">
+                                        <button class="icon-btn edit">✏️</button>
+                                        <button class="icon-btn view">👁️</button>
+                                        <button class="icon-btn delete">❌</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>12345679</td>
+                                    <td>Jane Smith</td>
+                                    <td>jane.smith@student.csn.edu</td>
+                                    <td>Mathematics</td>
+                                    <td><span class="status-badge inactive">Inactive</span></td>
+                                    <td class="action-buttons">
+                                        <button class="icon-btn edit">✏️</button>
+                                        <button class="icon-btn view">👁️</button>
+                                        <button class="icon-btn delete">❌</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="pagination">
+                        <button class="page-btn">Previous</button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn">Next</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

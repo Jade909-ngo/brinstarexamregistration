@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account Page</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% include 'accounts/style_with_background.html' %}
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="{% static 'images/csn_logo.png' %}" alt="CSN Logo">
+        </div>
+        <h1>Create Account</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                <label for="account-type">Select Account Type:</label>
+                <select id="account-type" name="account_type" required>
+                    <option value="">-- Select Account Type --</option>
+                    <option value="student">Student</option>
+                    <option value="faculty">Faculty</option>
+                </select>
+            </div>
+            <button type="submit">Continue</button>
+        </form>
+    </div>
+</body>
+</html>

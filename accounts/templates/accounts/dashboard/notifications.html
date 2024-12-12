@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% include 'accounts/style_with_background.html' %}
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="{% static 'images/csn_logo.png' %}" alt="CSN Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'register_exam' %}">Register for Exam</a></li>
+                <li><a href="{% url 'view_schedule' %}">View Schedule</a></li>
+                <li><a href="{% url 'profile' %}">Profile</a></li>
+                <li><a href="{% url 'notifications' %}" class="active">Notifications</a></li>
+                <li><a href="{% url 'settings' %}">Settings</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="welcome-section">
+                    <h1>Notifications</h1>
+                    <p>Today is {% now "F j, Y" %}</p>
+                </div>
+            </header>
+            <div class="dashboard-content">
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="notifications-header">
+                            <h3>Recent Notifications</h3>
+                            <button class="action-btn secondary">Mark All as Read</button>
+                        </div>
+                        <div class="notifications-list">
+                            <div class="notification-item unread">
+                                <div class="notification-icon">
+                                    <span class="icon-alert">!</span>
+                                </div>
+                                <div class="notification-content">
+                                    <h4>Exam Registration Confirmed</h4>
+                                    <p>Your Math 181 exam has been scheduled for December 15, 2024.</p>
+                                    <span class="notification-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-icon">
+                                    <span class="icon-info">i</span>
+                                </div>
+                                <div class="notification-content">
+                                    <h4>Profile Update</h4>
+                                    <p>Your profile information has been successfully updated.</p>
+                                    <span class="notification-time">1 day ago</span>
+                                </div>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-icon">
+                                    <span class="icon-reminder">⏰</span>
+                                </div>
+                                <div class="notification-content">
+                                    <h4>Exam Reminder</h4>
+                                    <p>Don't forget your English 101 exam tomorrow at 2:00 PM.</p>
+                                    <span class="notification-time">2 days ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login Page</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% include 'accounts/style_with_background.html' %}
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="{% static 'images/csn_logo.png' %}" alt="CSN Logo">
+        </div>
+        <h1>Student Login</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+        <div class="login-options">
+            <button onclick="location.href='/register'">Create Your Account</button>
+            <button onclick="location.href='/faculty'">Faculty Login</button>
+        </div>
+    </div>
+</body>
+</html>
+

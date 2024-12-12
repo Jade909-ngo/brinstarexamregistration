@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% include 'accounts/style_with_background.html' %}
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="{% static 'images/csn_logo.png' %}" alt="CSN Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Dashboard</a></li>
+                <li><a href="#">Manage Students</a></li>
+                <li><a href="#">Exam Schedule</a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="welcome-section">
+                    <h1>Admin Dashboard</h1>
+                    <p>Today is {% now "F j, Y" %}</p>
+                </div>
+            </header>
+            <div class="dashboard-content">
+                <div class="dashboard-grid">
+                    <!-- Analytics Cards -->
+                    <div class="dashboard-card stats-card">
+                        <h3>Total Students</h3>
+                        <div class="stat-number">1,245</div>
+                        <p class="stat-trend positive">+12% this month</p>
+                    </div>
+                    <div class="dashboard-card stats-card">
+                        <h3>Active Exams</h3>
+                        <div class="stat-number">48</div>
+                        <p class="stat-trend">Currently in progress</p>
+                    </div>
+                    <div class="dashboard-card stats-card">
+                        <h3>Pending Registrations</h3>
+                        <div class="stat-number">23</div>
+                        <p class="stat-trend negative">5 require attention</p>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="dashboard-card">
+                        <h3>Recent Activity</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <span class="activity-time">2 mins ago</span>
+                                <p>New exam registration by John Doe</p>
+                            </div>
+                            <div class="activity-item">
+                                <span class="activity-time">15 mins ago</span>
+                                <p>Schedule updated for Math 181</p>
+                            </div>
+                            <div class="activity-item">
+                                <span class="activity-time">1 hour ago</span>
+                                <p>New student account created</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="dashboard-card">
+                        <h3>Quick Actions</h3>
+                        <div class="quick-actions">
+                            <button class="action-btn primary">Add New Student</button>
+                            <button class="action-btn secondary">Schedule Exam</button>
+                            <button class="action-btn secondary">Generate Report</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

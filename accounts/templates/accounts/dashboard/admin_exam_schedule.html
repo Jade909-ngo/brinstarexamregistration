@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Schedule Management</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% include 'accounts/style_with_background.html' %}
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="{% static 'images/csn_logo.png' %}" alt="CSN Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'admin_dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'manage_students' %}">Manage Students</a></li>
+                <li><a href="{% url 'admin_exam_schedule' %}" class="active">Exam Schedule</a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="welcome-section">
+                    <h1>Exam Schedule Management</h1>
+                    <p>Today is {% now "F j, Y" %}</p>
+                </div>
+            </header>
+            <div class="dashboard-content">
+                <div class="dashboard-card">
+                    <div class="schedule-controls">
+                        <button class="action-btn primary">Create New Exam</button>
+                        <div class="filter-controls">
+                            <select>
+                                <option>All Campuses</option>
+                                <option>Charleston</option>
+                                <option>Henderson</option>
+                                <option>North Las Vegas</option>
+                            </select>
+                            <select>
+                                <option>All Subjects</option>
+                                <option>Mathematics</option>
+                                <option>English</option>
+                                <option>Science</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="exam-schedule-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Exam ID</th>
+                                    <th>Subject</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Campus</th>
+                                    <th>Room</th>
+                                    <th>Capacity</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>EX001</td>
+                                    <td>Math 181</td>
+                                    <td>Dec 15, 2024</td>
+                                    <td>9:00 AM</td>
+                                    <td>Charleston</td>
+                                    <td>Room 301</td>
+                                    <td>15/20</td>
+                                    <td><span class="status-badge active">Active</span></td>
+                                    <td class="action-buttons">
+                                        <button class="icon-btn edit">✏️</button>
+                                        <button class="icon-btn delete">❌</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>EX002</td>
+                                    <td>English 101</td>
+                                    <td>Dec 18, 2024</td>
+                                    <td>2:00 PM</td>
+                                    <td>Henderson</td>
+                                    <td>Room 205</td>
+                                    <td>18/25</td>
+                                    <td><span class="status-badge active">Active</span></td>
+                                    <td class="action-buttons">
+                                        <button class="icon-btn edit">✏️</button>
+                                        <button class="icon-btn delete">❌</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
